@@ -18,9 +18,10 @@ int main(){
         }
     return 0;
 }
-visualizarLista(){
-    for()
+void visualizarLista(){
+    // for() {}
 }
+
 void mostraMenu(){
     printf("### Menu de interacao ###\n");
         printf("1 - Visualizar lista\n");
