@@ -15,12 +15,19 @@ int main(){
     switch(opcao){
         case 1:
             //funcao para executar opcao 1
-            // visualizarLista();
+            visualizarLista();
         }
     return 0;
 }
 void visualizarLista(){
-    // for() {}
+    if(controle==0){
+        printf("Sua lista esta vazia\n");
+    }else {
+        for(int i=0; i<controle; i++){
+            printf(lista[i]);
+        }
+    }
+  
 }
 
 void esvaziarLista()
