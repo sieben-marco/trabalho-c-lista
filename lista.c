@@ -14,11 +14,13 @@ int controle = 0;
 int main(){
     // declaracoes locais
     int opcao;
-    mostraMenu();
 
     while(opcao != 7){
+        mostraMenu();
+
         printf("Digite o numero da operacao: ");
         scanf("%d", &opcao);
+        
         switch(opcao){
             case 1:
                 //funcao para executar opcao 1
@@ -117,9 +119,9 @@ void consultar_lista()
 /*****************************************/
 void visualizarLista(){
     if(controle==0){
-        printf("|--------------------|\n");
+        printf("----------------------\n");
         printf("| A lista esta vazia |\n");
-        printf("|--------------------|\n");
+        printf("----------------------\n");
         return;
     }
 
@@ -138,12 +140,12 @@ void esvaziar_lista()
 
 /*****************************************/
 void mostraMenu(){
-    printf("### Menu de interacao ###\n");
+    printf("\n### Menu de interacao ###\n");
     printf("1 - Visualizar lista\n");
     printf("2 - Consultar codigo\n");
     printf("3 - Inserir codigo\n");
     printf("4 - Remover codigo\n");
     printf("5 - Visualizar quantidade de elementos\n");
     printf("6 - Esvaziar lista\n");
-    printf("7 - Finalizar\n");
+    printf("7 - Finalizar\n\n");
 }
