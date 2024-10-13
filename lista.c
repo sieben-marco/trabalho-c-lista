@@ -73,10 +73,10 @@ void visualizarLista(){
         return;
     }
 
-        for(int i=0; i<controle; i++){
+    for(int i=0; i<controle; i++){
         printf("%d | ", lista[i]);
     }
-  
+
     printf("\n");
 }
 
