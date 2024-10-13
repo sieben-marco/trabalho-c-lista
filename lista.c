@@ -1,12 +1,14 @@
 // desenvolver lista
 #include<stdio.h>
+
+int lista[9];
+
 int main(){
 
-    int vet[9];
 
     for(int i = 0; i <=9; i++){
         printf("\nInforme qual a posicao do codigo desejado:");
-        scanf("%d", vet[i]);
+        scanf("%d", lista[i]);
     }
     return 0;
 }
