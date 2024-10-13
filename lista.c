@@ -70,12 +70,14 @@ void consultar_lista()
 void visualizarLista(){
     if(controle==0){
         printf("Sua lista esta vazia\n");
-    }else {
+        return;
+    }
+
         for(int i=0; i<controle; i++){
-            printf("%d", lista[i]);
-        }
+        printf("%d | ", lista[i]);
     }
   
+    printf("\n");
 }
 
 void esvaziar_lista()
