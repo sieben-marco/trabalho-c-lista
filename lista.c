@@ -1,12 +1,15 @@
-// desenvolver lista
 #include<stdio.h>
-int vet[9];
-//assinatura da funcao indica que sera usada essa funcao independente da implementacao
+
+int lista[9];
+//assinatura da funcao, indica que sera usada essa funcao independente da implementacao
 void mostraMenu();
 
 int main(){
     mostraMenu();
-
+    for(int i = 0; i <= 9; i++){
+        printf("Informe o numero da opcao que deseja realizar: ");
+        scanf("%d", lista[i]);
+    }
     return 0;
 }
 
