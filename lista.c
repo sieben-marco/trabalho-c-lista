@@ -1,24 +1,39 @@
 #include<stdio.h>
 
+// declaracoes globais
 int lista[9];
 int controle = 0;
+
 //assinatura de funcao, indica que sera usada independente da implementacao
 void mostraMenu();
 void visualizarLista();
-void esvaziarLista();
+void consultar_lista();
+void esvaziar_lista();
 
 int main(){
+    // declaracoes locais
     int opcao;
+
     mostraMenu();
+    
     printf("Informe o numero da opcao que deseja realizar: ");
     scanf("%d", &opcao);
+
     switch(opcao){
         case 1:
             //funcao para executar opcao 1
             visualizarLista();
-        }
+            break;
+    }
+    
     return 0;
 }
+
+void consultar_lista()
+{
+
+}
+
 void visualizarLista(){
     if(controle==0){
         printf("Sua lista esta vazia\n");
@@ -30,7 +45,7 @@ void visualizarLista(){
   
 }
 
-void esvaziarLista()
+void esvaziar_lista()
 {
     controle = 0;
 }
