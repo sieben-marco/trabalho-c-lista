@@ -24,7 +24,7 @@ void visualizarLista(){
         printf("Sua lista esta vazia\n");
     }else {
         for(int i=0; i<controle; i++){
-            printf(lista[i]);
+            printf("%d", lista[i]);
         }
     }
   
