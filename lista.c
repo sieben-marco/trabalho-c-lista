@@ -13,21 +13,23 @@ void esvaziar_lista();
 int main(){
     // declaracoes locais
     int opcao;
-
     mostraMenu();
 
-    printf("Informe o numero da opcao que deseja realizar: ");
-    scanf("%d", &opcao);
-
-    switch(opcao){
-        case 1:
-            //funcao para executar opcao 1
-            visualizarLista();
-            break;
-        case 2:
-            //funcao para executar opcao 2
-            consultar_lista();
-            break;
+    while(opcao != 7){
+        printf("Informe o numero da opcao que deseja realizar: ");
+        scanf("%d", &opcao);
+        switch(opcao){
+            case 1:
+                //funcao para executar opcao 1
+                visualizarLista();
+                break;
+            case 2:
+                //funcao para executar opcao 2
+                consultar_lista();
+                break;
+            case 3:
+                //funcao para execurar opcao 3
+        }
     }
 
     return 0;
@@ -62,4 +64,5 @@ void mostraMenu(){
     printf("4 - Remover codigo\n");
     printf("5 - Visualizar quantidade de elementos\n");
     printf("6 - Esvaziar lista\n");
+    printf("7 - Finalizar");
 }
