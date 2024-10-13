@@ -4,7 +4,7 @@
 int lista[9];
 int controle = 0;
 
-//assinatura de funcao, indica que sera usada independente da implementacao
+// assinatura de funcao, indica que sera usada independente da implementacao
 void mostraMenu();
 void visualizarLista();
 void consultar_lista();
@@ -21,11 +21,11 @@ int main(){
 
     switch(opcao){
         case 1:
-            //funcao para executar opcao 1
+            // funcao para executar opcao 1
             visualizarLista();
             break;
         case 2:
-            //funcao para executar opcao 2
+            // funcao para executar opcao 2
             consultar_lista();
             break;
     }
@@ -35,7 +35,36 @@ int main(){
 
 void consultar_lista()
 {
+    if (controle == 0) // se a lista esta vazia
+        return;
+    
+    int indice;
 
+    visualizarLista();
+
+    printf("Digite qual índice deseja consultar: ");
+    scanf("%d", &indice);
+    
+    if (indice > controle)
+    {
+        printf("A quantidade de elementos e menor que o indice escolhido.\n");
+        visualizarLista();
+        return;
+    }
+
+    if (indice < 0)
+    {
+        printf("O indice nao pode ser negativo.\n");
+        visualizarLista();
+        return;
+    }
+
+    if (indice > 0 && indice < controle)
+    {
+        printf("%d\n", lista[indice]);
+        visualizarLista();
+        return;
+    }
 }
 
 void visualizarLista(){
