@@ -15,7 +15,7 @@ int main(){
     int opcao;
 
     mostraMenu();
-    
+
     printf("Informe o numero da opcao que deseja realizar: ");
     scanf("%d", &opcao);
 
@@ -24,8 +24,12 @@ int main(){
             //funcao para executar opcao 1
             visualizarLista();
             break;
+        case 2:
+            //funcao para executar opcao 2
+            consultar_lista();
+            break;
     }
-    
+
     return 0;
 }
 
@@ -52,11 +56,10 @@ void esvaziar_lista()
 
 void mostraMenu(){
     printf("### Menu de interacao ###\n");
-        printf("1 - Visualizar lista\n");
-        printf("2 - Consultar codigo\n");
-        printf("3 - Inserir codigo\n");
-        printf("4 - Remover codigo\n");
-        printf("5 - Visualizar quantidade de elementos\n");
-        printf("6 - Esvaziar lista\n");
-
+    printf("1 - Visualizar lista\n");
+    printf("2 - Consultar codigo\n");
+    printf("3 - Inserir codigo\n");
+    printf("4 - Remover codigo\n");
+    printf("5 - Visualizar quantidade de elementos\n");
+    printf("6 - Esvaziar lista\n");
 }
