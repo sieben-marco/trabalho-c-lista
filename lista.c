@@ -5,6 +5,7 @@ int controle = 0;
 //assinatura de funcao, indica que sera usada independente da implementacao
 void mostraMenu();
 void visualizarLista();
+void esvaziarLista();
 
 int main(){
     int opcao;
@@ -20,6 +21,11 @@ int main(){
 }
 void visualizarLista(){
     // for() {}
+}
+
+void esvaziarLista()
+{
+    controle = 0;
 }
 
 void mostraMenu(){
