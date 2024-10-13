@@ -1,18 +1,26 @@
 #include<stdio.h>
 
 int lista[9];
-//assinatura da funcao, indica que sera usada essa funcao independente da implementacao
+int controle = 0;
+//assinatura de funcao, indica que sera usada independente da implementacao
 void mostraMenu();
+void visualizarLista();
 
 int main(){
+    int opcao;
     mostraMenu();
-    for(int i = 0; i <= 9; i++){
-        printf("Informe o numero da opcao que deseja realizar: ");
-        scanf("%d", lista[i]);
-    }
+    printf("Informe o numero da opcao que deseja realizar: ");
+    scanf("%d", &opcao);
+    switch(opcao){
+        case 1:
+            //funcao para executar opcao 1
+            // visualizarLista();
+        }
     return 0;
 }
-
+visualizarLista(){
+    for()
+}
 void mostraMenu(){
     printf("### Menu de interacao ###\n");
         printf("1 - Visualizar lista\n");
