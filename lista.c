@@ -16,9 +16,14 @@ int main(){
         case 1:
             //funcao para executar opcao 1
             visualizarLista();
+        case 2:
+            //funcao para executar opcao 2
+
         }
+        
     return 0;
 }
+
 void visualizarLista(){
     if(controle==0){
         printf("Sua lista esta vazia\n");
@@ -29,7 +34,6 @@ void visualizarLista(){
     }
   
 }
-
 void esvaziarLista()
 {
     controle = 0;
@@ -37,11 +41,10 @@ void esvaziarLista()
 
 void mostraMenu(){
     printf("### Menu de interacao ###\n");
-        printf("1 - Visualizar lista\n");
-        printf("2 - Consultar codigo\n");
-        printf("3 - Inserir codigo\n");
-        printf("4 - Remover codigo\n");
-        printf("5 - Visualizar quantidade de elementos\n");
-        printf("6 - Esvaziar lista\n");
-
+    printf("1 - Visualizar lista\n");
+    printf("2 - Consultar codigo\n");
+    printf("3 - Inserir codigo\n");
+    printf("4 - Remover codigo\n");
+    printf("5 - Visualizar quantidade de elementos\n");
+    printf("6 - Esvaziar lista\n");
 }
