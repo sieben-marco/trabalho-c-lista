@@ -1,15 +1,15 @@
 #include<stdio.h>
 
-// declaracoes globais
-int lista[9];
-int controle = 0;
-
 // assinatura de funcao, indica que sera usada independente da implementacao
 void mostraMenu();
 void visualizarLista();
 void consultar_lista();
 void esvaziar_lista();
 void inserirCodigo();
+
+// declaracoes globais
+int lista[9];
+int controle = 0;
 
 int main(){
     // declaracoes locais
@@ -31,23 +31,29 @@ int main(){
             case 3:
                 //funcao para execurar opcao 3
                 inserirCodigo();
+                break;
+            case 6:
+                esvaziar_lista();
+                break;
         }
     }
 
     return 0;
 }
+
+/*****************************************/
 void inserirCodigo(){
 
     int indice;
     int valor;
     if(controle==0){
-    printf("|--------------------|\n");
-    printf("| A lista esta vazia |\n");
-    printf("|--------------------|\n");
-    
-    printf("Informe a posicao que deseja inserir: \n");
-    scanf("%d", &indice);
-    }else{}
+        printf("----------------------\n");
+        printf("| A lista esta vazia |\n");
+        printf("----------------------\n");
+        
+        printf("Informe a posicao que deseja inserir: \n");
+        scanf("%d", &indice);
+    }
     
     //se indice for maior que valor de controle, insere o valor no primeiro indice disponivel
     if(indice>controle){
@@ -71,6 +77,7 @@ void inserirCodigo(){
 
 }
 
+/*****************************************/
 void consultar_lista()
 {
     if (controle == 0) // se a lista esta vazia
@@ -107,6 +114,7 @@ void consultar_lista()
     }
 }
 
+/*****************************************/
 void visualizarLista(){
     if(controle==0){
         printf("|--------------------|\n");
@@ -122,11 +130,13 @@ void visualizarLista(){
     printf("\n");
 }
 
+/*****************************************/
 void esvaziar_lista()
 {
     controle = 0;
 }
 
+/*****************************************/
 void mostraMenu(){
     printf("### Menu de interacao ###\n");
     printf("1 - Visualizar lista\n");
