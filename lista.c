@@ -1,11 +1,5 @@
 #include<stdio.h>
-
-// assinatura de funcao, indica que sera usada independente da implementacao
-void mostraMenu();
-void visualizarLista();
-void consultar_lista();
-void esvaziar_lista();
-void inserirCodigo();
+#include "lista.h" // inclui as assinaturas das funcoes usadas
 
 // declaracoes globais
 int lista[9];
