@@ -1,13 +1,6 @@
 #include<stdio.h>
-#include<stdlib.h>//Para usar a função system()
-
-// assinatura de funcao, indica que sera usada independente da implementacao
-void mostraMenu();
-void visualizarLista();
-void consultar_lista();
-void esvaziar_lista();
-void inserirCodigo();
-void clear();
+#include<stdlib.h> //uso da funcao System
+#include "lista.h" // inclui as assinaturas das funcoes usadas
 
 // declaracoes globais
 int lista[9];
@@ -22,7 +15,7 @@ int main(){
 
         printf("Digite o numero da operacao: ");
         scanf("%d", &opcao);
-        
+
         switch(opcao){
             case 1:
                 //funcao para executar opcao 1
@@ -38,6 +31,13 @@ int main(){
                 break;
             case 6:
                 esvaziar_lista();
+                break;
+            case 7:
+                //mostrar lista
+                printf("\n\nPrograma finalizado.\n");
+                break;
+            default:
+                printf("\nDigite uma opcao valida.\n");
                 break;
         }
     }
@@ -133,6 +133,8 @@ void visualizarLista(){
         printf("----------------------\n");
         return;
     }
+
+    printf("A lista contem %d elementos.\n", controle);
 
     for(int i=0; i<controle; i++){
         printf("%d | ", lista[i]);
