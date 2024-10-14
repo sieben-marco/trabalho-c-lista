@@ -14,7 +14,7 @@ int main(){
 
         printf("Digite o numero da operacao: ");
         scanf("%d", &opcao);
-        
+
         switch(opcao){
             case 1:
                 //funcao para executar opcao 1
@@ -30,6 +30,12 @@ int main(){
                 break;
             case 6:
                 esvaziar_lista();
+                break;
+            case 7:
+                printf("\n\nPrograma finalizado.\n");
+                break;
+            default:
+                printf("\nDigite uma opcao valida.\n");
                 break;
         }
     }
