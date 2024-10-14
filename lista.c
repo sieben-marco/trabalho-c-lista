@@ -125,6 +125,8 @@ void visualizarLista(){
         return;
     }
 
+    printf("A lista contem %d elementos.\n", controle);
+
     for(int i=0; i<controle; i++){
         printf("%d | ", lista[i]);
     }
