@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>//Para usar a função system()
 
 // assinatura de funcao, indica que sera usada independente da implementacao
 void mostraMenu();
@@ -6,6 +7,7 @@ void visualizarLista();
 void consultar_lista();
 void esvaziar_lista();
 void inserirCodigo();
+void clear();
 
 // declaracoes globais
 int lista[9];
@@ -44,8 +46,13 @@ int main(){
 }
 
 /*****************************************/
-void inserirCodigo(){
+void clear(){
+    system("cls");
+}
 
+/*****************************************/
+void inserirCodigo(){
+    clear();
     int indice;
     int valor;
     if(controle==0){
@@ -53,9 +60,9 @@ void inserirCodigo(){
         printf("| A lista esta vazia |\n");
         printf("----------------------\n");
         
+    }
         printf("Informe a posicao que deseja inserir: \n");
         scanf("%d", &indice);
-    }
     
     //se indice for maior que valor de controle, insere o valor no primeiro indice disponivel
     if(indice>controle){
@@ -70,6 +77,7 @@ void inserirCodigo(){
     if(indice > 0 && indice < controle){
         for(int i=controle; i>indice; i--){
             lista[i+1] = lista[i];
+            controle++;
         }
         visualizarLista();
         return;
@@ -91,33 +99,34 @@ void consultar_lista()
     int indice;
 
 
-    printf("Digite qual índice deseja consultar: ");
+    printf("Digite qual indice deseja consultar: ");
     scanf("%d", &indice);
     
-    if (indice > controle)
+    if (indice >= controle)
     {
-        printf("A quantidade de elementos e menor que o indice escolhido.\n");
         visualizarLista();
+        printf("A quantidade de elementos e menor que o indice escolhido.\n");
         return;
     }
 
     if (indice < 0)
     {
-        printf("O indice nao pode ser negativo.\n");
         visualizarLista();
+        printf("O indice nao pode ser negativo.\n");
         return;
     }
 
     if (indice > 0 && indice < controle)
     {
-        printf("%d\n", lista[indice]);
         visualizarLista();
+        printf("%d\n", lista[indice]);
         return;
     }
 }
 
 /*****************************************/
 void visualizarLista(){
+    clear();
     if(controle==0){
         printf("----------------------\n");
         printf("| A lista esta vazia |\n");
