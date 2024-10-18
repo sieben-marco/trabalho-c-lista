@@ -150,7 +150,15 @@ void visualizarLista(){
 /*****************************************/
 void esvaziar_lista()
 {
+    clear();
+    if(controle == 0){
+        printf("-------------------------\n"); 
+        printf("| A lista ja esta vazia |\n");
+        printf("-------------------------\n");
+        return;
+    }
     controle = 0;
+    printf("Lista esvaziada");
 }
 
 /*****************************************/
