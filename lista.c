@@ -47,6 +47,7 @@ int main(){
 
 /*****************************************/
 void clear(){
+    //limpar tela
     system("cls || clear");
 }
 
@@ -55,11 +56,8 @@ void inserirCodigo(){
     clear();
     int indice;
     int valor;
-    if(lista_esta_vazia()){
-        printf("----------------------\n");
-        printf("| A lista esta vazia |\n");
-        printf("----------------------\n"); 
-    }
+    
+    // lista_esta_vazia();
     printf("Informe a posicao que deseja inserir: \n");
     scanf("%d", &indice);
     
@@ -93,6 +91,7 @@ void inserirCodigo(){
 /*****************************************/
 void consultar_lista()
 {
+    clear();
     if (lista_esta_vazia())
     {
         visualizarLista();
@@ -101,27 +100,28 @@ void consultar_lista()
     
     int indice;
 
-    printf("Digite qual indice deseja consultar: ");
-    scanf("%d", &indice);
+
+    do{
+        printf("Digite qual indice deseja consultar (entre 0 e 8):");
+        scanf("%d", &indice);
         
-    if (indice >= controle)
-    {
-        printf("A quantidade de elementos e menor que o indice escolhido.\n");
-        return;
-    }
-
-    if (indice < 0)
-    {
-        printf("O indice nao pode ser negativo.\n");
-        return;
-    }
-
-    if (indice >= 0 && indice < controle)
-    {
-        visualizarLista();
-        printf("%d\n", lista[indice]);
-        return;
-    }
+        if (indice >= 9) // Garantindo que o usuário insira um índice até 8
+        {
+            printf("O indice deve ser entre 0 e 8.\n");
+        }
+        else if (indice >= controle)
+        {
+            printf("A quantidade de elementos e menor que o indice escolhido.\n");
+        }
+        else if (indice < 0)
+        {
+            printf("O indice nao pode ser negativo.\n");
+        }
+        else if (indice >= 0 && indice < controle)
+        {
+            printf("No indice %d tem o valor %d \n", indice, lista[indice]);
+        }
+    }while(indice < 0 || indice >= 9);
 }
 
 /*****************************************/
