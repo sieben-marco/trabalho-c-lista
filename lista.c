@@ -56,36 +56,34 @@ void inserirCodigo(){
     clear();
     int indice;
     int valor;
-    
-    // lista_esta_vazia();
-    printf("Informe a posicao que deseja inserir: \n");
-    scanf("%d", &indice);
-    
-    //se indice for maior ou igual ao valor de controle, insere o valor no primeiro indice disponivel
-    if(indice>=controle){
-        printf("Digite o valor da posicao: \n");
-        scanf("%d", &valor);
 
-        lista[controle] = valor;
-        controle++;//atualiza quantidade de valores na lista
+    if (controle == 9)
+    {
+        printf("A lista esta cheia.\n");
         return;
     }
-    //se indice estiver no intervalo de 0 e entre controle, alterna posicoes e insere valor
-    if(indice >= 0 && indice < controle){
-        printf("Digite o valor da posicao: \n");
-        scanf("%d", &valor);
 
-        for(int i=controle; i>indice; i--){
-            lista[i] = lista[i-1];
-        }
+    do{
+        printf("Digite qual indice deseja inserir (entre 0 e 8):");
+        scanf("%d", &indice);
         
-        lista[indice] = valor;
-        controle++;
+        if (indice < 0 || indice >= 9)
+        {
+            printf("O indice deve ser entre 0 e 8.\n");
+        }
+        else if (indice >= controle)
+        {
+            printf("Digite o valor da posicao: \n");
+            scanf("%d", &valor);
 
-        visualizarLista();
-        return;
-
-    }
+            lista[controle] = valor;
+            controle++;//atualiza quantidade de valores na lista
+        }
+        else if (indice >= 0 && indice < controle)
+        {
+            printf("No indice %d tem o valor %d \n", indice, lista[indice]);
+        }
+    }while(indice < 0 || indice >= 9);
 }
 
 /*****************************************/
