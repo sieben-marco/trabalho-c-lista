@@ -81,7 +81,15 @@ void inserirCodigo(){
         }
         else if (indice >= 0 && indice < controle)
         {
-            printf("No indice %d tem o valor %d \n", indice, lista[indice]);
+            printf("Digite o valor da posicao: \n");
+            scanf("%d", &valor);
+
+            for(int i=controle; i>indice; i--){
+                lista[i] = lista[i-1];
+            }
+            
+            lista[indice] = valor;
+            controle++;
         }
     }while(indice < 0 || indice >= 9);
 }
