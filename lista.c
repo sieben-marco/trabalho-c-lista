@@ -103,17 +103,13 @@ void consultar_lista()
         printf("Digite qual indice deseja consultar (entre 0 e 8):");
         scanf("%d", &indice);
         
-        if (indice >= 9) // Garantindo que o usuário insira um índice até 8
+        if (indice < 0 || indice >= 9)
         {
             printf("O indice deve ser entre 0 e 8.\n");
         }
         else if (indice >= controle)
         {
-            printf("A quantidade de elementos e menor que o indice escolhido.\n");
-        }
-        else if (indice < 0)
-        {
-            printf("O indice nao pode ser negativo.\n");
+            printf("O indice informado e maior que a quantidade de elementos.\n");
         }
         else if (indice >= 0 && indice < controle)
         {
