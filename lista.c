@@ -88,8 +88,6 @@ void inserirCodigo(){
         return;
 
     }
-   
-
 }
 
 /*****************************************/
@@ -103,25 +101,22 @@ void consultar_lista()
     
     int indice;
 
-
     printf("Digite qual indice deseja consultar: ");
     scanf("%d", &indice);
-    
+        
     if (indice >= controle)
     {
-        visualizarLista();
         printf("A quantidade de elementos e menor que o indice escolhido.\n");
         return;
     }
 
     if (indice < 0)
     {
-        visualizarLista();
         printf("O indice nao pode ser negativo.\n");
         return;
     }
 
-    if (indice > 0 && indice < controle)
+    if (indice >= 0 && indice < controle)
     {
         visualizarLista();
         printf("%d\n", lista[indice]);
@@ -135,10 +130,8 @@ void visualizarLista(){
 
     if(lista_esta_vazia()) return;
 
-    if (controle == 1)
-        printf("A lista contem %d elemento.\n\n", controle);
-    else
-        printf("A lista contem %d elementos.\n\n", controle);
+    if (controle == 1) printf("A lista contem %d elemento.\n\n", controle);
+    else printf("A lista contem %d elementos.\n\n", controle);
     
     printf("indice:");
     for (int i = 0; i < controle; i++) {
