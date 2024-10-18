@@ -14,7 +14,7 @@ int main(){
         mostraMenu();
 
         printf("Digite o numero da operacao: ");
-        scanf("%d", &opcao);
+        scanf(" %d", &opcao);
 
         switch(opcao){
             case 1:
@@ -47,7 +47,7 @@ int main(){
 
 /*****************************************/
 void clear(){
-    system("cls");
+    system("cls || clear");
 }
 
 /*****************************************/
@@ -55,17 +55,16 @@ void inserirCodigo(){
     clear();
     int indice;
     int valor;
-    if(controle==0){
+    if(lista_esta_vazia()){
         printf("----------------------\n");
         printf("| A lista esta vazia |\n");
-        printf("----------------------\n");
-        
+        printf("----------------------\n"); 
     }
-        printf("Informe a posicao que deseja inserir: \n");
-        scanf("%d", &indice);
+    printf("Informe a posicao que deseja inserir: \n");
+    scanf("%d", &indice);
     
-    //se indice for maior que valor de controle, insere o valor no primeiro indice disponivel
-    if(indice>controle){
+    //se indice for maior ou igual ao valor de controle, insere o valor no primeiro indice disponivel
+    if(indice>=controle){
         printf("Digite o valor da posicao: \n");
         scanf("%d", &valor);
 
@@ -73,12 +72,18 @@ void inserirCodigo(){
         controle++;//atualiza quantidade de valores na lista
         return;
     }
-    //se indice estiver no intervalo entre 0 e controle, modifica posicoes e insere valor
-    if(indice > 0 && indice < controle){
+    //se indice estiver no intervalo de 0 e entre controle, alterna posicoes e insere valor
+    if(indice >= 0 && indice < controle){
+        printf("Digite o valor da posicao: \n");
+        scanf("%d", &valor);
+
         for(int i=controle; i>indice; i--){
-            lista[i+1] = lista[i];
-            controle++;
+            lista[i] = lista[i-1];
         }
+        
+        lista[indice] = valor;
+        controle++;
+
         visualizarLista();
         return;
 
@@ -90,7 +95,7 @@ void inserirCodigo(){
 /*****************************************/
 void consultar_lista()
 {
-    if (controle == 0) // se a lista esta vazia
+    if (lista_esta_vazia())
     {
         visualizarLista();
         return;
@@ -127,15 +132,21 @@ void consultar_lista()
 /*****************************************/
 void visualizarLista(){
     clear();
-    if(controle==0){
-        printf("----------------------\n");
-        printf("| A lista esta vazia |\n");
-        printf("----------------------\n");
-        return;
+
+    if(lista_esta_vazia()) return;
+
+    if (controle == 1)
+        printf("A lista contem %d elemento.\n\n", controle);
+    else
+        printf("A lista contem %d elementos.\n\n", controle);
+    
+    printf("indice:");
+    for (int i = 0; i < controle; i++) {
+        printf("   %d", i);
     }
 
-    printf("A lista contem %d elementos.\n", controle);
-
+    printf("\nvalor:  ");
+    printf("| ");
     for(int i=0; i<controle; i++){
         printf("%d | ", lista[i]);
     }
@@ -147,6 +158,21 @@ void visualizarLista(){
 void esvaziar_lista()
 {
     controle = 0;
+}
+
+/*****************************************/
+int lista_esta_vazia()
+{
+    if (controle == 0)
+    {
+        printf("----------------------\n");
+        printf("| A lista esta vazia |\n");
+        printf("----------------------\n");
+
+        return 1;
+    }
+
+    return 0;
 }
 
 /*****************************************/
