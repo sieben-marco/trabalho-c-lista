@@ -4,3 +4,6 @@ void consultar_lista();
 void esvaziar_lista();
 void inserirCodigo();
 int lista_esta_vazia();
+int lista_esta_cheia();
+void remove_elemento();
+void qtd_elementos();
