@@ -52,7 +52,7 @@ int main(){
 
 /*****************************************/
 void clear(){
-    system("cls || clear"); //limpar tela
+    system("cls || clear"); //limpa a tela
 }
 
 /*****************************************/
@@ -82,6 +82,9 @@ void remove_elemento()
         }
         else if (indice >= 0 && indice < controle)
         {
+            /**
+             * 
+             */
             for(int i = indice; i < controle-1; i++){
                 lista[i] = lista[i+1];
             }
@@ -120,12 +123,18 @@ void inserirCodigo(){
             printf("Digite o valor da posicao: \n");
             scanf("%d", &valor);
 
+            /**
+             * inicia o contador com valor igual ao controle (ultimo indice)
+             * descrementa contador enquanto for menor que o indice desejado
+             * a lista no indice atual recebe o valor do indice menos um (valor anterior)
+             * quando contador igual ao indice desejado, a lista recebe o valor desejado neste indice
+             */
             for(int i=controle; i>indice; i--){
                 lista[i] = lista[i-1];
             }
             
             lista[indice] = valor;
-            controle++;
+            controle++; // incrementa a quantidade de elementos na lista
         }
     }while(indice < 0 || indice >= 9);
 }
