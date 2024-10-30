@@ -38,7 +38,7 @@ int main(){
                 esvaziar_lista();
                 break;
             case 7:
-                //mostrar lista
+                visualizarLista();
                 printf("\n\nPrograma finalizado.\n");
                 break;
             default:
@@ -246,6 +246,8 @@ int lista_esta_vazia()
         printf("----------------------\n");
         printf("| A lista esta vazia |\n");
         printf("----------------------\n");
+
+        visualizarLista();
 
         return 1;
     }
