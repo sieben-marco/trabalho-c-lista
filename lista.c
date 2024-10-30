@@ -61,7 +61,10 @@ void qtd_elementos()
     if (lista_esta_vazia())
         return;
 
-    printf("\nA lista contem %d elementos.\n", controle);
+    if (controle == 1)
+        printf("A lista contem %d elemento.\n\n", controle);
+    else
+        printf("A lista contem %d elementos.\n\n", controle);
 }
 
 /*****************************************/
