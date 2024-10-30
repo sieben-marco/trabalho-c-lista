@@ -58,7 +58,8 @@ void clear(){
 /*****************************************/
 void qtd_elementos()
 {
-    if (lista_esta_vazia()) return;
+    if (lista_esta_vazia())
+        return;
 
     printf("\nA lista contem %d elementos.\n", controle);
 }
@@ -66,7 +67,10 @@ void qtd_elementos()
 /*****************************************/
 void remove_elemento()
 {
-    if (lista_esta_vazia()) return;
+    clear();
+
+    if (lista_esta_vazia())
+        return;
 
     int indice;
     int valor;
@@ -97,10 +101,12 @@ void remove_elemento()
 /*****************************************/
 void inserirCodigo(){
     clear();
+
+    if (lista_esta_cheia())
+        return;
+
     int indice;
     int valor;
-
-    if (lista_esta_cheia()) return;
 
     do{
         printf("Digite qual indice deseja inserir (entre 0 e %d): ", controle);
