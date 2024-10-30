@@ -118,7 +118,7 @@ void inserirCodigo(){
         }
         else if (indice >= controle)
         {
-            printf("Digite o valor da posicao: \n");
+            printf("Digite o valor da posicao: ");
             scanf("%d", &valor);
 
             lista[controle] = valor;
@@ -126,7 +126,7 @@ void inserirCodigo(){
         }
         else if (indice >= 0 && indice < controle)
         {
-            printf("Digite o valor da posicao: \n");
+            printf("Digite o valor da posicao: ");
             scanf("%d", &valor);
 
             /**
