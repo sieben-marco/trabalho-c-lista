@@ -166,23 +166,39 @@ void consultar_lista()
 void visualizarLista(){
     clear();
 
-    if(lista_esta_vazia()) return;
-
-    if (controle == 1) printf("A lista contem %d elemento.\n\n", controle);
-    else printf("A lista contem %d elementos.\n\n", controle);
+    // if(lista_esta_vazia())
+    //     return;
     
-    printf("indice:");
-    for (int i = 0; i < controle; i++) {
-        printf("   %d", i);
+    // printf("indice:");
+    // for (int i = 0; i < controle; i++) {
+    //     printf("   %d", i);
+    // }
+
+    // printf("\nvalor:  ");
+    // printf("| ");
+    // for(int i=0; i<controle; i++){
+    //     printf("%d | ", lista[i]);
+    // }
+
+    // printf("\n");
+
+    printf("lista = [ ");
+
+    for (int i = 0; i < controle; i++)
+    {
+        if (i != controle-1)
+        {
+            printf("%d, ", lista[i]);
+        }
+        else
+        {
+            printf("%d ", lista[i]);
+        }
     }
 
-    printf("\nvalor:  ");
-    printf("| ");
-    for(int i=0; i<controle; i++){
-        printf("%d | ", lista[i]);
-    }
+    printf("]\n");
 
-    printf("\n");
+    qtd_elementos();
 }
 
 /*****************************************/
