@@ -184,22 +184,6 @@ void consultar_lista()
 void visualizarLista(){
     clear();
 
-    // if(lista_esta_vazia())
-    //     return;
-    
-    // printf("indice:");
-    // for (int i = 0; i < controle; i++) {
-    //     printf("   %d", i);
-    // }
-
-    // printf("\nvalor:  ");
-    // printf("| ");
-    // for(int i=0; i<controle; i++){
-    //     printf("%d | ", lista[i]);
-    // }
-
-    // printf("\n");
-
     printf("lista = [ ");
 
     for (int i = 0; i < controle; i++)
@@ -247,7 +231,7 @@ int lista_esta_vazia()
         printf("| A lista esta vazia |\n");
         printf("----------------------\n");
 
-        visualizarLista();
+        // visualizarLista();
 
         return 1;
     }
