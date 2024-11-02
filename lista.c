@@ -189,3 +189,6 @@ void mostraMenu(){
     printf("6 - Esvaziar lista\n");
     printf("7 - Finalizar\n\n");
 }
+
+
+
