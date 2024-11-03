@@ -211,7 +211,7 @@ void consultar_lista()
         {
             printf("\nO indice %d contem o valor %d\n", indice, lista[indice]);
         }
-    }while(indice < 0 || indice >= MAX);
+    }while(indice < 0 || indice >= MAX || indice >= controle);
 }
 
 /*****************************************/
