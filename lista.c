@@ -86,7 +86,7 @@ void qtd_elementos(int eh_menu)
 /*****************************************/
 void remove_elemento()
 {
-    printf("--- REMOVOCAO DE ELEMENTO ---\n");
+    printf("--- REMOCAO DE ELEMENTO ---\n");
     visualizarLista();
 
     // retorna se a lista esta vazia
@@ -99,22 +99,25 @@ void remove_elemento()
 
     do
     {
-        printf("Digite de qual indice deseja remover um elemento (entre 0 e %d): ", MAX-1);
+        printf("Digite o indice do elemento que deseja remover (entre 0 e %d): ", MAX-1);
         scanf(" %d", &indice);
 
         if (indice < 0 || indice >= MAX)
         {
             printf("\nO indice deve ser entre 0 e %d.\n", MAX-1);
         }
-        else if (indice == controle)
+        else if (indice == controle-1) // Se o valor digitado for igual ao controle-1, remove o ultimo elemento 
         {
             controle--;
         }
         else if (indice >= 0 && indice < controle)
         {
-            /**
-             * 
-             */
+            /** 
+             * i recebe o valor (indice) digitado pelo usuario
+             * loop ate que o valor digitado seja menor que a lista 
+             * Lista na posicao digitada recebe o valor digitado mais um para pegar valor da frente
+             * Valor da frente é atribuido a posicao que continha valor removido
+            */
             for(int i = indice; i < controle-1; i++){
                 lista[i] = lista[i+1];
             }
@@ -133,6 +136,7 @@ void inserirCodigo(){
     printf("--- INSERCAO DE ELEMENTO ---\n");
     visualizarLista();
 
+    // retorna se a lista esta vazia
     if (lista_esta_cheia())
         return;
 
@@ -149,7 +153,7 @@ void inserirCodigo(){
         {
             printf("\nO indice deve ser entre 0 e %d.\n", MAX-1);
         }
-        else if (indice == controle)
+        else if (indice == controle) // neste caso o controle ja possui o valor do primeiro indice livre
         {
             printf("Digite o valor do elemento: ");
             scanf("%d", &valor);
@@ -188,6 +192,7 @@ void consultar_lista()
     printf("--- CONSULTA DE ELEMENTO ---\n");
     visualizarLista();
 
+    // retorna se a lista esta vazia
     if (lista_esta_vazia())
         return;
 
@@ -239,6 +244,7 @@ void esvaziar_lista()
     printf("--- ESVAZIAR LISTA ---\n");
     visualizarLista();
 
+    // retorna se a lista esta vazia
     if(controle == 0){
         printf("A lista ja esta vazia\n");
 
@@ -257,6 +263,7 @@ void esvaziar_lista()
 /*****************************************/
 int lista_esta_vazia()
 {
+    // retorna se a lista esta vazia
     if (controle == 0)
     {
         printf("A lista esta vazia\n");
@@ -270,6 +277,7 @@ int lista_esta_vazia()
 /*****************************************/
 int lista_esta_cheia()
 {
+    // retorna se a lista esta cheia
     if (controle == MAX)
     {
         printf("A lista esta cheia\n");
