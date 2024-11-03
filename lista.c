@@ -104,7 +104,11 @@ void remove_elemento()
 
         if (indice < 0 || indice >= MAX)
         {
-            printf("O indice deve ser entre 0 e %d.\n", MAX-1);
+            printf("\nO indice deve ser entre 0 e %d.\n", MAX-1);
+        }
+        else if (indice == controle)
+        {
+            controle--;
         }
         else if (indice >= 0 && indice < controle)
         {
