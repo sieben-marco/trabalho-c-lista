@@ -147,7 +147,7 @@ void inserirCodigo(){
         
         if (indice < 0 || indice >= MAX)
         {
-            printf("O indice deve ser entre 0 e %d.\n", MAX-1);
+            printf("\nO indice deve ser entre 0 e %d.\n", MAX-1);
         }
         else if (indice == controle)
         {
@@ -201,15 +201,15 @@ void consultar_lista()
         
         if (indice < 0 || indice >= MAX)
         {
-            printf("O indice deve ser entre 0 e %d.\n", MAX-1);
+            printf("\nO indice deve ser entre 0 e %d.\n", MAX-1);
         }
         else if (indice >= controle)
         {
-            printf("O indice informado e maior que a quantidade de elementos.\n");
+            printf("\nO indice informado e maior que a quantidade de elementos.\n");
         }
         else if (indice >= 0 && indice < controle)
         {
-            printf("\nO indice %d conttem o valor %d\n", indice, lista[indice]);
+            printf("\nO indice %d contem o valor %d\n", indice, lista[indice]);
         }
     }while(indice < 0 || indice >= MAX);
 }
@@ -248,7 +248,7 @@ void esvaziar_lista()
     qtd_elementos(0);
 
     controle = 0;
-    printf("Lista esvaziada\n");
+    printf("\nLista esvaziada\n");
 
     visualizarLista();
     qtd_elementos(0);
