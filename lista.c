@@ -131,7 +131,6 @@ void remove_elemento()
 void inserirCodigo(){
         
     printf("--- INSERCAO DE ELEMENTO ---\n");
-    printf("- ANTES\n");
     visualizarLista();
 
     if (lista_esta_cheia())
@@ -179,7 +178,6 @@ void inserirCodigo(){
     }while(indice < 0 || indice >= MAX);
     
     printf("\n");
-    printf("- DEPOIS\n");
     visualizarLista();
     qtd_elementos(0);
 }
