@@ -7,3 +7,4 @@ int lista_esta_vazia();
 int lista_esta_cheia();
 void remove_elemento();
 void qtd_elementos();
+void clear();
