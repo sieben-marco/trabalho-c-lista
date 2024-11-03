@@ -6,5 +6,5 @@ void inserirCodigo();
 int lista_esta_vazia();
 int lista_esta_cheia();
 void remove_elemento();
-void qtd_elementos();
+void qtd_elementos(int eh_menu);
 void clear();

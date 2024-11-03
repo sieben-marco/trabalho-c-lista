@@ -1,8 +1,8 @@
 #include<stdio.h>
-#include<stdlib.h> //uso da funcao System
+#include<stdlib.h> // uso da funcao system()
 #include "lista.h" // inclui as assinaturas das funcoes usadas
 
-#define MAX 5
+#define MAX 9
 
 // declaracoes globais
 int lista[MAX];
@@ -12,9 +12,11 @@ int main(){
     // declaracoes locais
     int opcao;
 
+    clear();
     visualizarLista();
+    qtd_elementos(0);
 
-    while(opcao != 7){
+    while(opcao != 6){
         mostraMenu();
 
         printf("Digite o numero da operacao: ");
@@ -23,32 +25,29 @@ int main(){
         switch(opcao){
             case 1:
                 clear();
-                visualizarLista();
+                inserirCodigo();
                 break;
             case 2:
                 clear();
-                inserirCodigo();
+                consultar_lista();
                 break;
             case 3:
                 clear();
-                consultar_lista();
+                remove_elemento();
                 break;
             case 4:
                 clear();
-                remove_elemento();
+                qtd_elementos(1);
                 break;
             case 5:
                 clear();
-                qtd_elementos();
+                esvaziar_lista();
                 break;
             case 6:
                 clear();
-                esvaziar_lista();
-                break;
-            case 7:
-                clear();
                 visualizarLista(); // mostra a lista antes de encerrar
-                printf("\n\nPrograma finalizado.\n");
+                qtd_elementos(0);
+                printf("\nPROGRAMA FINALIZADO.\n\n");
                 break;
             default:
                 clear();
@@ -66,42 +65,46 @@ void clear(){
 }
 
 /*****************************************/
-void qtd_elementos()
+void qtd_elementos(int eh_menu)
 {
+    if (eh_menu){
+        printf("--- QUANTIDADE DE ELEMENTOS ---\n");
+        visualizarLista();
+    }
+
     // retorna se a lista esta vazia
     if (lista_esta_vazia())
         return;
 
-    printf("------------");
-
     // condicao para mensagem no singular ou no plural
     if (controle == 1)
-        printf("\nA lista contem %d elemento.\n", controle);
+        printf("A lista contem %d elemento.\n", controle);
     else
-        printf("\nA lista contem %d elementos.\n", controle);
+        printf("A lista contem %d elementos.\n", controle);
 }
 
 /*****************************************/
 void remove_elemento()
 {
-    clear();
+    printf("--- REMOVOCAO DE ELEMENTO ---\n");
+    visualizarLista();
 
     // retorna se a lista esta vazia
     if (lista_esta_vazia())
         return;
-
-    visualizarLista();
+    
+    qtd_elementos(0);
 
     int indice; // armazena a posicao de remocao
 
     do
     {
-        printf("Digite de qual indice deseja remover um elemento (entre 0 e 8): ");
+        printf("Digite de qual indice deseja remover um elemento (entre 0 e %d): ", MAX-1);
         scanf(" %d", &indice);
 
-        if (indice < 0 || indice >= 9)
+        if (indice < 0 || indice >= MAX)
         {
-            printf("O indice deve ser entre 0 e 8.\n");
+            printf("O indice deve ser entre 0 e %d.\n", MAX-1);
         }
         else if (indice >= 0 && indice < controle)
         {
@@ -114,34 +117,38 @@ void remove_elemento()
             
             controle--;
         }
-    } while (indice < 0 || indice >= 9);
+    } while (indice < 0 || indice >= MAX);
 
     visualizarLista();
+    qtd_elementos(0);
 }
 
 /*****************************************/
 void inserirCodigo(){
-    clear();
+        
+    printf("--- INSERCAO DE ELEMENTO ---\n");
+    printf("- ANTES\n");
+    visualizarLista();
 
     if (lista_esta_cheia())
         return;
 
-    visualizarLista();
+    qtd_elementos(0);
 
     int indice;
     int valor;
 
     do{
-        printf("\nDigite qual indice deseja inserir (entre 0 e 8): ");
+        printf("\nDigite em qual indice deseja inserir (entre 0 e %d): ", MAX-1);
         scanf("%d", &indice);
         
-        if (indice < 0 || indice >= 9)
+        if (indice < 0 || indice >= MAX)
         {
-            printf("O indice deve ser entre 0 e 8.\n");
+            printf("O indice deve ser entre 0 e %d.\n", MAX-1);
         }
         else if (indice >= controle)
         {
-            printf("Digite o valor da posicao: ");
+            printf("Digite o valor do elemento: ");
             scanf("%d", &valor);
 
             lista[controle] = valor;
@@ -149,7 +156,7 @@ void inserirCodigo(){
         }
         else if (indice >= 0 && indice < controle)
         {
-            printf("Digite o valor da posicao: ");
+            printf("Digite o valor do elemento: ");
             scanf("%d", &valor);
 
             /**
@@ -165,31 +172,34 @@ void inserirCodigo(){
             lista[indice] = valor;
             controle++; // incrementa a quantidade de elementos na lista
         }
-    }while(indice < 0 || indice >= 9);
+    }while(indice < 0 || indice >= MAX);
     
     printf("\n");
+    printf("- DEPOIS\n");
     visualizarLista();
+    qtd_elementos(0);
 }
 
 /*****************************************/
 void consultar_lista()
 {
-    clear();
+    printf("--- CONSULTA DE ELEMENTO ---\n");
+    visualizarLista();
 
     if (lista_esta_vazia())
         return;
-    
-    visualizarLista();
+
+    qtd_elementos(0);
 
     int indice;
 
     do{
-        printf("\nDigite qual indice deseja consultar (entre 0 e 8): ");
+        printf("\nDigite qual indice deseja consultar (entre 0 e %d): ", MAX-1);
         scanf("%d", &indice);
         
-        if (indice < 0 || indice >= 9)
+        if (indice < 0 || indice >= MAX)
         {
-            printf("O indice deve ser entre 0 e 8.\n");
+            printf("O indice deve ser entre 0 e %d.\n", MAX-1);
         }
         else if (indice >= controle)
         {
@@ -198,9 +208,8 @@ void consultar_lista()
         else if (indice >= 0 && indice < controle)
         {
             printf("\nO indice %d conttem o valor %d\n", indice, lista[indice]);
-            printf("-----------\n");
         }
-    }while(indice < 0 || indice >= 9);
+    }while(indice < 0 || indice >= MAX);
 }
 
 /*****************************************/
@@ -220,23 +229,27 @@ void visualizarLista(){
     }
 
     printf("]\n");
-
-    qtd_elementos();
 }
 
 /*****************************************/
 void esvaziar_lista()
 {   
-    if(lista_esta_vazia()){
-        clear();
+    printf("--- ESVAZIAR LISTA ---\n");
+    visualizarLista();
 
+    if(controle == 0){
         printf("A lista ja esta vazia\n");
 
         return;
     }
 
+    qtd_elementos(0);
+
     controle = 0;
     printf("Lista esvaziada\n");
+
+    visualizarLista();
+    qtd_elementos(0);
 }
 
 /*****************************************/
@@ -257,9 +270,7 @@ int lista_esta_cheia()
 {
     if (controle == MAX)
     {
-        printf("----------------------\n");
-        printf("| A lista esta cheia |\n");
-        printf("----------------------\n");
+        printf("A lista esta cheia\n");
 
         return 1;
     }
@@ -269,12 +280,11 @@ int lista_esta_cheia()
 
 /*****************************************/
 void mostraMenu(){
-    printf("\n------- Menu de interacao -------\n");
-    printf("1 - Visualizar lista\n");
-    printf("2 - Inserir elemento\n");
-    printf("3 - Consultar elemento\n");
-    printf("4 - Remover elemento\n");
-    printf("5 - Visualizar quantidade de elementos\n");
-    printf("6 - Esvaziar lista\n");
-    printf("7 - Finalizar\n\n");
+    printf("\n------- MENU DE INTERACAO -------\n");
+    printf("1 - Inserir elemento\n");
+    printf("2 - Consultar elemento\n");
+    printf("3 - Remover elemento\n");
+    printf("4 - Visualizar quantidade de elementos\n");
+    printf("5 - Esvaziar lista\n");
+    printf("6 - Finalizar\n\n");
 }
