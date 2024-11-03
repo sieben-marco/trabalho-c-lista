@@ -146,7 +146,7 @@ void inserirCodigo(){
         {
             printf("O indice deve ser entre 0 e %d.\n", MAX-1);
         }
-        else if (indice >= controle)
+        else if (indice == controle)
         {
             printf("Digite o valor do elemento: ");
             scanf("%d", &valor);
