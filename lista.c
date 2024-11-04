@@ -96,6 +96,7 @@ void remove_elemento()
     qtd_elementos(0);
 
     int indice; // armazena a posicao de remocao
+    int continua;
 
     do
     {
@@ -105,14 +106,17 @@ void remove_elemento()
         if (indice < 0 || indice >= MAX)
         {
             printf("\nO indice deve ser entre 0 e %d.\n", MAX-1);
+            continua = 1;
         }
         else if (indice >= controle)
         {
             printf("\nO indice informado e maior que a quantidade de elementos.\n");
+            continua = 1;
         }
         else if (indice == controle-1) // Se o valor digitado for igual ao controle-1, remove o ultimo elemento 
         {
             controle--;
+            continua = 0;
         }
         else if (indice >= 0 && indice < controle)
         {
@@ -127,8 +131,9 @@ void remove_elemento()
             }
             
             controle--;
+            continua = 0;
         }
-    } while (indice < 0 || indice >= MAX || indice >= controle);
+    } while (continua);
 
     visualizarLista();
     qtd_elementos(0);
