@@ -1,8 +1,19 @@
 #include<stdio.h>
 #include<stdlib.h> // uso da funcao system()
-#include "lista.h" // inclui as assinaturas das funcoes usadas
 
 #define MAX 9
+
+// assinaturas (declaracoes)
+void mostraMenu();
+void visualizarLista();
+void consultar_lista();
+void esvaziar_lista();
+void inserirCodigo();
+int lista_esta_vazia();
+int lista_esta_cheia();
+void remove_elemento();
+void qtd_elementos(int eh_menu);
+void clear();
 
 // declaracoes globais
 int lista[MAX];
@@ -113,11 +124,6 @@ void remove_elemento()
             printf("\nO indice informado e maior que a quantidade de elementos.\n");
             continua = 1;
         }
-        else if (indice == controle-1) // Se o valor digitado for igual ao controle-1, remove o ultimo elemento 
-        {
-            controle--;
-            continua = 0;
-        }
         else if (indice >= 0 && indice < controle)
         {
             /** 
@@ -164,7 +170,7 @@ void inserirCodigo(){
             printf("\nO indice deve ser entre 0 e %d.\n", MAX-1);
             continua=1;
         }
-        else if (indice == controle) // neste caso o controle ja possui o valor do primeiro indice livre
+        else if (indice >= controle) // neste caso o controle ou ja possui o valor do primeiro indice livre ou esta em posicoes livres a frente, logo insere na primeira posicao livre
         {
             printf("Digite o valor do elemento: ");
             scanf("%d", &valor);
@@ -173,7 +179,7 @@ void inserirCodigo(){
             controle++;//atualiza quantidade de valores na lista
             continua=0;
         }
-        else if (indice >= 0 && indice < controle)
+        else if (indice >= 0 && indice <= controle)
         {
             printf("Digite o valor do elemento: ");
             scanf("%d", &valor);
