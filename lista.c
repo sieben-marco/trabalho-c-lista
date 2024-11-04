@@ -153,6 +153,7 @@ void inserirCodigo(){
 
     int indice;
     int valor;
+    int continua;
 
     do{
         printf("\nDigite em qual indice deseja inserir (entre 0 e %d): ", MAX-1);
@@ -161,6 +162,7 @@ void inserirCodigo(){
         if (indice < 0 || indice >= MAX)
         {
             printf("\nO indice deve ser entre 0 e %d.\n", MAX-1);
+            continua=1;
         }
         else if (indice == controle) // neste caso o controle ja possui o valor do primeiro indice livre
         {
@@ -169,6 +171,7 @@ void inserirCodigo(){
 
             lista[controle] = valor;
             controle++;//atualiza quantidade de valores na lista
+            continua=0;
         }
         else if (indice >= 0 && indice < controle)
         {
@@ -187,8 +190,9 @@ void inserirCodigo(){
             
             lista[indice] = valor;
             controle++; // incrementa a quantidade de elementos na lista
+            continua=0;
         }
-    }while(indice < 0 || indice >= MAX);
+    }while(continua);
     
     printf("\n");
     visualizarLista();
@@ -208,7 +212,7 @@ void consultar_lista()
     qtd_elementos(0);
 
     int indice;
-
+    int continua;
     do{
         printf("\nDigite qual indice deseja consultar (entre 0 e %d): ", MAX-1);
         scanf("%d", &indice);
@@ -216,16 +220,19 @@ void consultar_lista()
         if (indice < 0 || indice >= MAX)
         {
             printf("\nO indice deve ser entre 0 e %d.\n", MAX-1);
+            continua=1;
         }
         else if (indice >= controle)
         {
             printf("\nO indice informado e maior que a quantidade de elementos.\n");
+            continua=1;
         }
         else if (indice >= 0 && indice < controle)
         {
             printf("\nO indice %d contem o valor %d\n", indice, lista[indice]);
+            continua=0;
         }
-    }while(indice < 0 || indice >= MAX || indice >= controle);
+    }while(continua);
 }
 
 /*****************************************/
