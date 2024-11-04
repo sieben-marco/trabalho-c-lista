@@ -106,6 +106,10 @@ void remove_elemento()
         {
             printf("\nO indice deve ser entre 0 e %d.\n", MAX-1);
         }
+        else if (indice >= controle)
+        {
+            printf("\nO indice informado e maior que a quantidade de elementos.\n");
+        }
         else if (indice == controle-1) // Se o valor digitado for igual ao controle-1, remove o ultimo elemento 
         {
             controle--;
