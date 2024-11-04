@@ -99,7 +99,7 @@ void remove_elemento()
 
     do
     {
-        printf("Digite o indice do elemento que deseja remover (entre 0 e %d): ", MAX-1);
+        printf("\nDigite o indice do elemento que deseja remover (entre 0 e %d): ", MAX-1);
         scanf(" %d", &indice);
 
         if (indice < 0 || indice >= MAX)
