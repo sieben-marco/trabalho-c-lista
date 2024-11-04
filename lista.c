@@ -128,7 +128,7 @@ void remove_elemento()
             
             controle--;
         }
-    } while (indice < 0 || indice >= MAX);
+    } while (indice < 0 || indice >= MAX || indice >= controle);
 
     visualizarLista();
     qtd_elementos(0);
